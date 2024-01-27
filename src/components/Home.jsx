@@ -7,7 +7,7 @@ const Home = () => {
     return (
         <Stack direction="row" justifyContent={"space-between"} alignItems={"center"}>
             <Typography variant="h4" component="h1" sx={{ mb: 2, fontSize: "40px", fontWeight: 700, fontFamily: "Inter" }}>
-                Magic Podcast
+                Nyous
             </Typography>
             <Link to="createpodcast"><Button variant="contained" startIcon={<AddCircleIcon/>}>New Podcast</Button></Link>
         </Stack>

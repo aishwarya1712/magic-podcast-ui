@@ -29,7 +29,7 @@ const Length = ({length, setLength}) => {
     <Stack sx={{mt: 2}} direction="row" spacing={1}>
 
     {lengths.map((el, key) => {
-        return <Chip  sx={{backgroundColor: length == el.value ? "#1976d2" : "", color: length == el.value ? "#ffffff" : ""}} key={key} label={el.name} variant="outlined" onClick={() => handleClick(el)}/>
+        return <Chip sx={{fontFamily: "Inter", backgroundColor: length == el.value ? "#1976d2" : "", color: length == el.value ? "#ffffff" : ""}} key={key} label={el.name} variant="outlined" onClick={() => handleClick(el)}/>
     })}
     </Stack>
     )

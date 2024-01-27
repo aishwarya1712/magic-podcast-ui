@@ -12,7 +12,6 @@ import IconButton from '@mui/material/IconButton';
 const Topics = ({formValues, setFormValues}) => {
 
     let handleChange = (i, e) => {
-        console.log("INdex: ", i, "E: ", e)
         let newFormValues = [...formValues];
         newFormValues[i] = e.target.value;
         setFormValues(newFormValues);
@@ -28,10 +27,6 @@ const Topics = ({formValues, setFormValues}) => {
         setFormValues(newFormValues)
     }
     
-    // let handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     alert(JSON.stringify(formValues));
-    // }
 
     return (
         <Stack>
