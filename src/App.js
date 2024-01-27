@@ -4,7 +4,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from './components/Layout';
 import CreatePodcast from './components/CreatePodcast';
-import NoPage from './NoPage';
+import NoPage from './components/NoPage';
 import Home from './components/Home';
 
 function App() {
