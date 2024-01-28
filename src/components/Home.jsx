@@ -3,32 +3,68 @@ import { Stack, Button, Box, Typography } from '@mui/material';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { Link } from "react-router-dom";
 import AudioTile from "./AudioTile";
-
+import { useLocation } from 'react-router-dom';
 
 const Home = () => {
     const [audioSrc, setAudioSrc] = useState('');
+    const location = useLocation();
     // const [audioInfo, setAudioInfo] = useState();
 
-    async function fetchAudio(url) {
+    const useQuery = () => {
+        return new URLSearchParams(location.search);
+      };
+
+      const query = useQuery();
+      const someParam = query.get('query'); // Replace 'someParam' with your query parameter key
+      console.log("Some param: ", someParam)
+    
+      const handlePostRequest = async () => {
         try {
-          const response = await fetch(url);
+          const response = await fetch('http://127.0.0.1:5000/x1', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ topics: topics, length: length }),
+          });
+    
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
           }
-          return await response.blob();
-        } catch (error) {
-          console.error("Error fetching audio:", error);
-        }
-      }
-
-    useEffect(() => {
-        fetchAudio("http://127.0.0.1:5000/get_mp3").then(blob => {
-          if (blob) {
+    
+          const blob = await response.blob();
+          if(blob){
             const localUrl = URL.createObjectURL(blob);
             setAudioSrc(localUrl);
           }
-        });
-      }, []);
+        } catch (error) {
+          console.error('Error during fetch operation:', error.message);
+        }
+      };
+
+      useEffect(() => {
+        handlePostRequest();
+      }, [])
+    // async function fetchAudio(url) {
+    //     try {
+    //       const response = await fetch(url);
+    //       if (!response.ok) {
+    //         throw new Error(`HTTP error! Status: ${response.status}`);
+    //       }
+    //       return await response.blob();
+    //     } catch (error) {
+    //       console.error("Error fetching audio:", error);
+    //     }
+    //   }
+
+    // useEffect(() => {
+    //     fetchAudio("http://127.0.0.1:5000/get_mp3").then(blob => {
+    //       if (blob) {
+    //         const localUrl = URL.createObjectURL(blob);
+    //         setAudioSrc(localUrl);
+    //       }
+    //     });
+    //   }, []);
 
     //   useEffect(() => {
     //     fetch('http://127.0.0.1:5000/get_audio_data')
@@ -46,9 +82,7 @@ const Home = () => {
                 </Stack>
                 <Typography  sx={{fontFamily:"Inter",  color: "#FFFFFF",fontSize: "20px", fontWeight: 700, mb: "48px"}}>Today's Briefings</Typography>
                 <Stack direction="row" spacing={2}>
-                    <AudioTile title="AI and Copyright News - Episode 3"/>
-                    <AudioTile title="AI and Copyright News - Episode 2"/>
-                    <AudioTile title="AI and Copyright News - Episode 1"/>
+                    <AudioTile title="Beyonce and Extreme Weather - Episode 1"/>
                 </Stack>
                
 

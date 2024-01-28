@@ -65,8 +65,7 @@ const CreateBriefing = () => {
         console.log("Selected listen until: ", listenUntil)
         handlePostRequest();
         /* Call API */
-        navigate("/")
-
+        navigate("/?query=" + topics[0])
     }
 
     return (
