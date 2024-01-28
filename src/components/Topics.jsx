@@ -44,13 +44,13 @@ const Topics = ({formValues, setFormValues}) => {
                     </Stack>
                   
                 </Box>
-                { index ?  <IconButton sx={{mt: 2}} onClick={() => removeFormFields(index)} aria-label="delete"> <DeleteIcon /></IconButton>: null }
+                { index ?  <IconButton sx={{mt: 2}} onClick={() => removeFormFields(index)} aria-label="delete"> <DeleteIcon sx={{color: "#FFFFFF"}} /></IconButton>: null }
               </Stack>
               
               
             </span>
           ))}
-          <Button onClick={addFormFields} sx={{width: "131px", height: "38px", mt: 2}} variant="contained" startIcon={<AddCircleIcon/>}>Add Topic</Button>
+          <Button onClick={addFormFields} sx={{fontFamily: "Inter", width: "140px", height: "38px", mt: 2}} variant="contained" startIcon={<AddCircleIcon/>}>Add Topic</Button>
       </Stack>
     )
 }

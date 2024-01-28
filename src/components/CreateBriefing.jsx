@@ -6,6 +6,7 @@ import {Button} from "@mui/material";
 import Length from "./Length";
 import Format from "./Format";
 import Frequency from "./Frequency";
+import { useNavigate } from 'react-router-dom';
 
 const CreateBriefing = () => {
     const [topics, setTopics] = useState([""]);
@@ -18,6 +19,7 @@ const CreateBriefing = () => {
     const [currentTime, setCurrentTime] = useState(0);
     const [data, setData] = useState(null);
     const [responseMessage, setResponseMessage] = useState('');
+    const navigate = useNavigate();
 
     const handlePostRequest = async () => {
       try {
@@ -63,42 +65,43 @@ const CreateBriefing = () => {
         console.log("Selected listen until: ", listenUntil)
         handlePostRequest();
         /* Call API */
+        navigate("/")
 
     }
 
     return (
         <Stack direction="row" spacing={5}>
             <Stack>
-                <Typography sx={{fontFamily:"Inter", fontSize: "32px", fontWeight: 700, mb: "48px"}}>Create your new briefing</Typography>
-                <Typography sx={{fontFamily: "Inter", fontSize: "16px", fontWeight: 700}}>What do you want to hear about?</Typography>
+                <Typography sx={{fontFamily:"Inter",  color: "#FFFFFF",fontSize: "32px", fontWeight: 700, mb: "48px"}}>Create your new briefing</Typography>
+                <Typography sx={{fontFamily: "Inter",  color: "#FFFFFF",fontSize: "16px", fontWeight: 700}}>What do you want to hear about?</Typography>
                 <Topics formValues={topics} setFormValues={setTopics} />
 
-                <Typography sx={{fontFamily: "Inter", fontSize: "16px", fontWeight: 700, mt: "48px"}}>Length</Typography>
+                <Typography sx={{fontFamily: "Inter", color: "#FFFFFF", fontSize: "16px", fontWeight: 700, mt: "48px"}}>Length</Typography>
                 <Length length={length} setLength={setLength}/>
 
-                <Typography sx={{fontFamily: "Inter", fontSize: "16px", fontWeight: 700, mt: "48px"}}>Format</Typography>
+                <Typography sx={{fontFamily: "Inter", color: "#FFFFFF", fontSize: "16px", fontWeight: 700, mt: "48px"}}>Format</Typography>
                 <Format format={format} setFormat={setFormat}/>
             
 
-                <Typography sx={{fontFamily: "Inter", fontSize: "16px", fontWeight: 700, mt: "48px"}}>Frequency</Typography>
+                <Typography sx={{fontFamily: "Inter",  color: "#FFFFFF",fontSize: "16px", fontWeight: 700, mt: "48px"}}>Frequency</Typography>
                 <Frequency frequency={frequency} setFrequency={setFrequency} dayOfWeek={dayOfWeek} setDayOfWeek={setDayOfWeek}/>
 
                 <Stack sx={{mt: "48px"}} direction="row" spacing={2} alignItems="center">
-                    <Typography sx={{fontFamily: "Inter", fontSize: "16px", fontWeight: 700, mt: "48px"}}>Time of Day</Typography>
-                    <TextField value={time} onChange={(e) => setTime(e.target.value)} sx={{width: "131px"}} size="small" />
+                    <Typography sx={{fontFamily: "Inter", color: "#FFFFFF", fontSize: "16px", fontWeight: 700, mt: "48px"}}>Time of Day</Typography>
+                    <TextField value={time} onChange={(e) => setTime(e.target.value)} sx={{width: "131px", border: "1px solid white",  input: { color: 'white' }}} size="small" />
                 </Stack>
 
                 <Stack sx={{mt: "48px"}} direction="row" spacing={2} alignItems="center">
-                    <Typography sx={{fontFamily: "Inter", fontSize: "16px", fontWeight: 700, mt: "48px"}}>Listen Until</Typography>
-                    <TextField value={listenUntil} onChange={(e) => setListenUntil(e.target.value)} sx={{width: "131px"}} size="small"/>
+                    <Typography sx={{fontFamily: "Inter", color: "#FFFFFF", fontSize: "16px", fontWeight: 700, mt: "48px"}}>Listen Until</Typography>
+                    <TextField value={listenUntil} onChange={(e) => setListenUntil(e.target.value)} sx={{width: "131px", border: "1px solid white",  input: { color: 'white' }}} size="small"/>
                 </Stack>
 
-                <Button sx={{fontFamily: "Inter", mt: "48px",width: "640px"}} variant="contained" onClick={handleSubmit}>Create Briefing</Button>
+                <Button sx={{fontFamily: "Inter", color: "#FFFFFF", mt: "48px",width: "640px"}} variant="contained" onClick={handleSubmit}>Create Briefing</Button>
             </Stack>
-            <Stack justifyContent={"center"} alignItems={"center"}>
+            {/* <Stack justifyContent={"center"} alignItems={"center"}>
                 <Box sx={{width: "480px", height: "480px", background: "#D9D9D9"}}/>
                 <Typography sx={{mt: 3, fontFamily: "Inter", fontSize: "24px", fontWeight: 700}}>AI Rights and Crypto in China</Typography>
-            </Stack>
+            </Stack> */}
         </Stack>
         
     )

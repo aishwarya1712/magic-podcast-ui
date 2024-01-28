@@ -25,7 +25,7 @@ const Frequency = ({frequency, setFrequency, dayOfWeek, setDayOfWeek}) => {
 
             {frequency == "Weekly" && days.map((el, key) => {
                 return (
-                    <Avatar onClick={() => setDayOfWeek(el)} sx={{fontFamily: "Inter", backgroundColor: el == dayOfWeek ? "#1976d2" : "#ffffff", color: el == dayOfWeek ? "#ffffff" : "#000000", border: el == dayOfWeek ? "1px solid #1976d2" : "1px solid #bdbdbd", width: 24, height: 24, fontSize: "10px"}} key={key}>{el[0]}</Avatar>
+                    <Avatar onClick={() => setDayOfWeek(el)} sx={{fontFamily: "Inter", backgroundColor: el == dayOfWeek ? "#D96F22" : "#ffffff", color: el == dayOfWeek ? "#ffffff" : "#000000", border: el == dayOfWeek ? "1px solid #D96F22" : "1px solid #bdbdbd", width: 24, height: 24, fontSize: "10px"}} key={key}>{el[0]}</Avatar>
                 )
             })}
         </Stack>
