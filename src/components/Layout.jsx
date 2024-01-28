@@ -9,8 +9,8 @@ const Layout = () => {
         <Container sx={{}}>
         <Box sx={{ my: 4 }}>
             <Link to="/"  style={{ textDecoration: 'none' }}>
-              <Typography variant="h4" component="h1" sx={{ mb: 2, color: "#FFFFFF", fontSize: "40px", fontWeight: 700, fontFamily: "Inter" }}>
-                  N<Typography variant="h4" component="h1" sx={{ mb: 2, color: "#D96F22", fontSize: "40px", fontWeight: 700, fontFamily: "Inter" , display: 'inline'}}>you</Typography>s
+              <Typography component="div" sx={{ mb: 2, color: "#FFFFFF", fontSize: "40px", fontWeight: 700, fontFamily: "Inter" }}>
+                  N<Typography component="div" sx={{ mb: 2, color: "#D96F22", fontSize: "40px", fontWeight: 700, fontFamily: "Inter" , display: 'inline'}}>you</Typography>s
               </Typography>
             </Link>
             <Outlet />

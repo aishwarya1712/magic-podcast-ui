@@ -6,9 +6,9 @@ import AudioTile from "./AudioTile";
 
 
 const Home = () => {
-    const [audios, setAudios] = useState([]);
     const [audioSrc, setAudioSrc] = useState('');
-    
+    // const [audioInfo, setAudioInfo] = useState();
+
     async function fetchAudio(url) {
         try {
           const response = await fetch(url);
@@ -25,12 +25,19 @@ const Home = () => {
         fetchAudio("http://127.0.0.1:5000/get_mp3").then(blob => {
           if (blob) {
             const localUrl = URL.createObjectURL(blob);
-            console.log("LOCAL URL: ", localUrl)
             setAudioSrc(localUrl);
           }
         });
       }, []);
 
+    //   useEffect(() => {
+    //     fetch('http://127.0.0.1:5000/get_audio_data')
+    //         .then(response => response.json())
+    //         .then(data => setAudioInfo(data))
+    //         .catch(error => console.error('Error fetching data:', error));
+    // }, []);
+
+      
     return (
         <Stack direction="row">
             <Stack spacing={4}>
